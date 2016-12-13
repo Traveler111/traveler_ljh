@@ -3,6 +3,7 @@ package com.example.jiahanglee.huanxin2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.ui.EaseChatFragment;
 
@@ -21,5 +22,8 @@ public class chat extends AppCompatActivity {
         //广播传参数
         chatFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction().add(R.id.container, chatFragment).commit();
+
+
+
     }
 }

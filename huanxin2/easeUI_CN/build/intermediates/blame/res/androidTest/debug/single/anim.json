@@ -8,12 +8,12 @@
         "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\slide_out_to_right.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_out_to_right.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_popup_exit.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\slide_out_to_right.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_out_to_right.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\slide_in_from_left.xml",

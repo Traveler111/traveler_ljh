@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="65dp"-->
+        <!--android:background="#09c9f9"-->
+        <!--android:textSize="33dp"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="#fff"-->
+        <!--android:text="徒步"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#09c9f9"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:textSize="33dp"
+            android:gravity="center"
+            android:paddingLeft="55dp"
+            android:textColor="#fff"
+            android:text="徒步"/>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/fabu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingRight="15dp"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:text="发表"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/foots"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+</LinearLayout>

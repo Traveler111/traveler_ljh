@@ -40,12 +40,12 @@
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_common_tab_bg.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_mm_listitem.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_mm_listitem.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_btn_cancel_normal_shape.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_btn_cancel_normal_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_mm_listitem.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_mm_listitem.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_chat_send_btn_selector.xml",
@@ -88,12 +88,12 @@
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_chat_image_selector.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_chatting_setmode_keyboard_btn.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_chatting_setmode_keyboard_btn.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_search_clear.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_search_clear.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_chatting_setmode_keyboard_btn.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\drawable\\ease_chatting_setmode_keyboard_btn.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\drawable\\ease_recording_hint_bg.xml",

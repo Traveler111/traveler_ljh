@@ -8,20 +8,20 @@
         "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_widget_emojicon_tab_bar.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_commom_back_btn.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_commom_back_btn.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_chat_message_list.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_chat_message_list.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_expression.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_row_expression.xml"
+        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_commom_back_btn.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_commom_back_btn.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_activity_show_big_image.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_activity_show_big_image.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_expression.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_row_expression.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_bigexpression.xml",
@@ -68,12 +68,12 @@
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_row_contact.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_emojicon.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_emojicon.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_commom_back_btn.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_commom_back_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_emojicon.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_emojicon.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\debug\\layout\\ease_row_sent_voice.xml",

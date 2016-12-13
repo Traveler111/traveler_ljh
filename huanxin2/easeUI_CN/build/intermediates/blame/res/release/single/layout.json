@@ -12,12 +12,12 @@
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_widget_chat_input_menu.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_fragment_contact_list.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_fragment_contact_list.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_sent_picture.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_row_sent_picture.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_fragment_contact_list.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_fragment_contact_list.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_sent_video_call.xml",
@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_row_sent_location.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_widget_emojicon.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_widget_emojicon.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_conversation_item.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_conversation_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_widget_emojicon.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_widget_emojicon.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_widget_title_bar.xml",
@@ -152,12 +152,12 @@
         "source": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_row_sent_video.xml"
     },
     {
-        "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_activity_show_file.xml",
-        "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_activity_show_file.xml"
-    },
-    {
         "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_received_location.xml",
         "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_row_received_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_activity_show_file.xml",
+        "source": "C:\\Users\\Lenov\\Desktop\\jiahanglee\\traveler_ljh\\huanxin2\\easeUI_CN\\src\\main\\res\\layout\\ease_activity_show_file.xml"
     },
     {
         "merged": "C:\\Users\\Lenov\\Desktop\\easemob-sdk-3.2.0\\examples\\huanxin2\\easeUI_CN\\build\\intermediates\\res\\merged\\release\\layout\\ease_row_sent_picture.xml",

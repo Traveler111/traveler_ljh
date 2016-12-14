@@ -7,11 +7,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/left"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:paddingLeft="10dp" />
+        <ProgressBar
+            android:id="@+id/grid_progressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:layout_gravity="center_vertical"
+            />
+        </RelativeLayout>
         <LinearLayout
             android:layout_weight="1"
             android:orientation="vertical"

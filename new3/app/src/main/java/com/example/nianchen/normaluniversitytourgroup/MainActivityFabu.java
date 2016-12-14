@@ -117,7 +117,7 @@ public class MainActivityFabu extends Activity {
                 RequestParams rp=new RequestParams();
                 rp.put("Title",title.getText().toString());
                 rp.put("Content",content.getText().toString());
-                rp.put("urlfirst",getFileName(paths));
+                rp.put("url",getFileName(paths));
                 client.get(url, rp, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int i, Header[] headers, byte[] bytes) {

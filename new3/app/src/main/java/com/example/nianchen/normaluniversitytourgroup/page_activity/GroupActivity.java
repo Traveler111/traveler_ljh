@@ -60,16 +60,10 @@ public class GroupActivity extends Activity {
                         JSONObject json=response.getJSONObject(i);
                         String scontent=json.getString("Content");
                         String stitle=json.getString("Title");
-
-//                        String surl=json.getString("url");
-//                        AsyncHttpClient client11=new AsyncHttpClient();
-//                        RequestParams rp1=new RequestParams();
-
-//                        rp1.put("url",surl);
-//                        System.out.println("Title:"+stitle);
-//                        System.out.println("Content:"+scontent);
-                        friends.add(new FriendTwo("http://123.207.228.232/blog/downFile",stitle,scontent,R.drawable.b1));
+                        String url = json.getString("url");
+                        friends.add(new FriendTwo("http://123.207.228.232/blog/downFile",stitle,scontent,R.drawable.b1,url));
                         myadpter.notifyDataSetChanged();
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

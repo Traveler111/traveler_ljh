@@ -11,6 +11,13 @@ public class FriendTwo {
     private int right;
 
 
+    public String getMid() {
+        return mid;
+    }
+
+    public void setMid(String mid) {
+        this.mid = mid;
+    }
 
     public String getLeft() {
         return left;
@@ -44,11 +51,11 @@ public class FriendTwo {
         this.right = right;
     }
 
-    public FriendTwo(String left, String top, String bottom, int right) {
+    public FriendTwo(String left, String top, String bottom, int right,String mid) {
         this.left = left;
         this.top = top;
         this.bottom = bottom;
         this.right = right;
-
+        this.mid = mid;
     }
 }

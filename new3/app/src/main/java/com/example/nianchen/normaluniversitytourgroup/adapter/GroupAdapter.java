@@ -1,6 +1,8 @@
 package com.example.nianchen.normaluniversitytourgroup.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
@@ -9,15 +11,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.nianchen.normaluniversitytourgroup.BaseClass.FriendTwo;
 import com.example.nianchen.normaluniversitytourgroup.R;
+import com.example.nianchen.normaluniversitytourgroup.page_activity.GroupActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.BinaryHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.ResponseHandlerInterface;
 
 import org.apache.http.Header;
 
@@ -34,6 +41,7 @@ public class GroupAdapter extends BaseAdapter {
     private List <FriendTwo> friends;
     private Context c;
     private ImageView img;
+    private ImageView img1;
     private TextView name;
     private TextView desc;
     private ImageView imgs;
@@ -41,23 +49,24 @@ public class GroupAdapter extends BaseAdapter {
     private String mid;
     private ListView view1;
 
-    Handler h=new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            Log.i("11111111",msg.arg1+"");
-            Log.i("22222222", view1.getCount()+"");
-            ImageView img1=(ImageView)view1.getChildAt(msg.arg1).findViewById(R.id.left);
-            if(img1!=null)
-                img1.setImageDrawable((Drawable) msg.obj);
-        }
-    };
+//    Handler h=new Handler(){
+//        @Override
+//        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+//            Log.i("11111111",msg.arg1+"");
+//            Log.i("22222222", view1.getCount()+"");
+//            ImageView img1=(ImageView)view1.getChildAt(msg.arg1).findViewById(R.id.left);
+//            if(img1!=null)
+//                img1.setImageDrawable((Drawable) msg.obj);
+//        }
+//    };
 
 
     public GroupAdapter(Context c, List<FriendTwo> friends, ListView view1) {
         this.c = c;
         this.friends = friends;
         this.view1=view1;
+
     }
 
     @Override
@@ -75,16 +84,22 @@ public class GroupAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView==null ){
             convertView= LayoutInflater.from(c).inflate(R.layout.array_item_two,null);//jiazaibujv
+
         }
+        convertView.setTag(position);
+        ProgressBar pb = (ProgressBar)convertView.findViewById(R.id.grid_progressBar);
+        pb.setVisibility(View.VISIBLE);
 
         img=(ImageView) convertView.findViewById(R.id.left);
 //        img.setImageResource(friends.get(position).getLeft());//fuzhi
         imgurl=friends.get(position).getLeft();
-        getimg(imgurl,position);
+        getimg(imgurl,position,friends.get(position).getMid(),convertView);
+
         name=(TextView) convertView.findViewById(R.id.top);
         name.setText(friends.get(position).getTop().toString());
         desc=(TextView)convertView.findViewById(R.id.bottom);
@@ -94,27 +109,57 @@ public class GroupAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void getimg(final String url1, final int postion) {
-        new Thread(){
-            @Override
-            public void run() {
-                super.run();
-                try {
+    private void getimg(final String url1, final int postion, final String tittle, final View convertView) {
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                super.run();
 
 
-                    URL url=new URL(url1);
-                    InputStream in=url.openStream();
-                    Drawable draw=Drawable.createFromStream(in,"image.png");
-                    Message msg=new Message();
-                    msg.obj=draw;
-                    msg.arg1=postion;
-                    h.sendMessage(msg);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    RequestParams rp2 = new RequestParams();
+                    rp2.put("url", tittle);
+                    client.get(url1, rp2, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            if (statusCode == 200) {
+                                //创建工厂对象
+                                BitmapFactory bitmapFactory = new BitmapFactory();
+                                //工厂对象的decodeByteArray把字节转换成Bitmap对象
+                                Bitmap bitmap = bitmapFactory.decodeByteArray(responseBody, 0, responseBody.length);
+                                //设置图片
+//                                imageView.setImageBitmap(bitmap);
+//                                Message msg = new Message();
+//                                msg.obj = bitmap;
+//                                msg.arg1 = postion;
+                                img1=(ImageView) view1.getChildAt(postion).findViewById(R.id.left);
+
+                               img1.setImageBitmap(bitmap);
+
+                                ProgressBar pb = (ProgressBar)convertView.findViewById(R.id.grid_progressBar);
+                                pb.setVisibility(View.INVISIBLE);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers,
+                                              byte[] responseBody, Throwable error) {
+                            error.printStackTrace();
+                        }
+
+                        @Override
+                        public void onProgress(long bytesWritten, long totalSize) {
+                            super.onProgress(bytesWritten, totalSize);
+//                            int count = (int) ((bytesWritten * 1.0 / totalSize) * 100);
+//                            // 上传进度显示
+//                            progress.setProgress(count);
+//                            Log.e("上传 Progress>>>>>", bytesWritten + " / " + totalSize);
+                        }
+                    });
+
             }
-        }.start();
-    }
+//        }.start();
+//    }
+
 }

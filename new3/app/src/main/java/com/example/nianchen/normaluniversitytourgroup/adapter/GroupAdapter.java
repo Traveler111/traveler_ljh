@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -48,7 +49,7 @@ public class GroupAdapter extends BaseAdapter {
     private String imgurl;
     private String mid;
     private ListView view1;
-
+    public int scrollStates;
 //    Handler h=new Handler(){
 //        @Override
 //        public void handleMessage(Message msg) {
@@ -84,9 +85,15 @@ public class GroupAdapter extends BaseAdapter {
         return position;
     }
 
+    private class ViewHolder{
+        private TextView brandEnNameTv;
+        private TextView brandChNameTv;
+        private String followCheckBox;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if(convertView==null ){
             convertView= LayoutInflater.from(c).inflate(R.layout.array_item_two,null);//jiazaibujv
 
@@ -97,19 +104,23 @@ public class GroupAdapter extends BaseAdapter {
 
         img=(ImageView) convertView.findViewById(R.id.left);
 //        img.setImageResource(friends.get(position).getLeft());//fuzhi
-        imgurl=friends.get(position).getLeft();
-        getimg(imgurl,position,friends.get(position).getMid(),convertView);
-
         name=(TextView) convertView.findViewById(R.id.top);
-        name.setText(friends.get(position).getTop().toString());
         desc=(TextView)convertView.findViewById(R.id.bottom);
-        desc.setText(friends.get(position).getBottom().toString());
         imgs=(ImageView) convertView.findViewById(R.id.right);
-        imgs.setImageResource(friends.get(position).getRight());
+
+
+            name.setText(friends.get(position).getTop().toString());
+            desc.setText(friends.get(position).getBottom().toString());
+            imgs.setImageResource(friends.get(position).getRight());
+//        img.setImageResource(friends.get(position).getRight());
+            img.setImageResource(R.mipmap.ic_launcher);
+            imgurl = friends.get(position).getLeft();
+            getimg(imgurl, position, friends.get(position).getMid(), convertView);
+
         return convertView;
     }
 
-    private void getimg(final String url1, final int postion, final String tittle, final View convertView) {
+        private void getimg(final String url1, final int postion, final String tittle, final View convertView) {
 //        new Thread(){
 //            @Override
 //            public void run() {
@@ -133,7 +144,10 @@ public class GroupAdapter extends BaseAdapter {
 //                                Message msg = new Message();
 //                                msg.obj = bitmap;
 //                                msg.arg1 = postion;
-                                img1=(ImageView) view1.getChildAt(postion).findViewById(R.id.left);
+                                if(scrollStates== AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+                                    img1=(ImageView) view1.getChildAt(postion-view1.getFirstVisiblePosition()).findViewById(R.id.left);
+                                }
+
 
                                img1.setImageBitmap(bitmap);
 

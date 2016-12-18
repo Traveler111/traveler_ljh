@@ -10,10 +10,11 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <ImageView
+            <com.example.nianchen.normaluniversitytourgroup.BaseClass.CircleImageView
             android:id="@+id/left"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
             android:paddingLeft="10dp" />
         <ProgressBar
             android:id="@+id/grid_progressBar"

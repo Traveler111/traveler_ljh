@@ -6,24 +6,28 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewStructure;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.nianchen.normaluniversitytourgroup.fragment.AttFragment;
 import com.example.nianchen.normaluniversitytourgroup.fragment.FindFragment;
 import com.example.nianchen.normaluniversitytourgroup.fragment.HomeFragment;
 import com.example.nianchen.normaluniversitytourgroup.fragment.MesFragment;
 import com.example.nianchen.normaluniversitytourgroup.fragment.MyFragment;
+import com.example.nianchen.normaluniversitytourgroup.page_activity.OppositeActivity;
 import com.hyphenate.EMContactListener;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.controller.EaseUI;
 
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     public static LinearLayout ll;
 
@@ -33,19 +37,23 @@ public class MainActivity extends Activity {
     private MyFragment mMy;
     private MesFragment mMes;
     private AttFragment mAtt;
-
+    private TextView unreadLabel;
     private LinearLayout liner_home;
     private LinearLayout liner_find;
     private LinearLayout liner_mes;
     private LinearLayout liner_attractions;
     private LinearLayout liner_my;
-
+    private TextView unreadAddressLable;
     private ImageButton image_home;
     private ImageButton image_find;
     private ImageButton image_mes;
     private ImageButton image_attractions;
     private ImageButton image_my;
-
+    public boolean isConflict = false;
+    // user account was removed
+    private boolean isCurrentAccountRemoved = false;
+    private int currentTabIndex;
+    private FindFragment conversationListFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +65,7 @@ public class MainActivity extends Activity {
         setListener();
         //设置默认页面
         setDefaultPage();
-        setfriendlistener();
+
     }
 
     private void setListener() {
@@ -98,10 +106,62 @@ public class MainActivity extends Activity {
         image_mes = (ImageButton)findViewById(R.id.image_mes);
         image_attractions = (ImageButton)findViewById(R.id.image_attractions);
         image_my = (ImageButton)findViewById(R.id.image_my);
+        unreadLabel = (TextView) findViewById(R.id.unread_msg_number);
+
 
     }
+    public void updateUnreadLabel() {
+        int count = getUnreadMsgCountTotal();
 
+        if (count > 0) {
+            unreadLabel.setText(String.valueOf(count));
+            unreadLabel.setVisibility(View.VISIBLE);
+        } else {
+            unreadLabel.setVisibility(View.INVISIBLE);
+        }
+    }
+    public int getUnreadMsgCountTotal() {
+        int unreadMsgCountTotal = 0;
+        int chatroomUnreadMsgCount = 0;
+        unreadMsgCountTotal = EMClient.getInstance().chatManager().getUnreadMsgsCount();
+        for(EMConversation conversation:EMClient.getInstance().chatManager().getAllConversations().values()){
+            if(conversation.getType() == EMConversation.EMConversationType.ChatRoom)
+                chatroomUnreadMsgCount=chatroomUnreadMsgCount+conversation.getUnreadMsgCount();
+        }
+        return unreadMsgCountTotal-chatroomUnreadMsgCount;
+    }
+    public int getUnreadAddressCountTotal() {
+        int unreadAddressCountTotal = 0;
 
+        return unreadAddressCountTotal;
+    }
+//    public void updateUnreadAddressLable() {
+//        runOnUiThread(new Runnable() {
+//            public void run() {
+//                int count = getUnreadAddressCountTotal();
+//                if (count > 0) {
+//                    unreadAddressLable.setVisibility(View.VISIBLE);
+//                } else {
+//                    unreadAddressLable.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        });
+//
+//    }
+private void refreshUIWithMessage() {
+    runOnUiThread(new Runnable() {
+        public void run() {
+            // refresh unread count
+            updateUnreadLabel();
+            if (currentTabIndex == 0) {
+                // refresh conversation list
+                if (conversationListFragment != null) {
+                    conversationListFragment.refresh();
+                }
+            }
+        }
+    });
+}
     class MyListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
@@ -117,12 +177,13 @@ public class MainActivity extends Activity {
                     SetTabsSelectedImg(0);
                     break;
                 case R.id.liner_find:
-                    if (mFind == null) {
-                        mFind = new FindFragment();
-                    }
-                    transaction.replace(R.id.contaner, mFind);
-                    ResetTabsImg();
-                    SetTabsSelectedImg(1);
+//                    if (mFind == null) {
+//                        mFind = new FindFragment();
+//                    }
+//                    transaction.replace(R.id.contaner, mFind.getFragmentManager());
+//                    ResetTabsImg();
+//                    SetTabsSelectedImg(1);
+                    startActivity(new Intent(MainActivity.this,OppositeActivity.class));
                     break;
                 case R.id.liner_mes:
                     if (mMes == null) {
@@ -153,45 +214,11 @@ public class MainActivity extends Activity {
             ll.invalidate();
         }
     }
-    public void setfriendlistener(){
-        EMClient.getInstance().contactManager().setContactListener(new EMContactListener() {
-            @Override
-            public void onContactAdded(String s) {
 
-            }
-
-            @Override
-            public void onContactDeleted(String s) {
-
-            }
-
-            @Override
-            public void onContactInvited(String s, String s1) {
-                Log.e("receive from "+s,"reason is"+s1);
-                Intent intent=new Intent();
-                //与清单文件的receiver的anction对应
-                intent.setAction("com.broadcast.test");
-                intent.putExtra("name",s);
-                intent.putExtra("reason",s1);
-                //发送广播
-                sendBroadcast(intent);
-            }
-
-            @Override
-            public void onContactAgreed(String s) {
-
-            }
-
-            @Override
-            public void onContactRefused(String s) {
-
-            }
-        });
-    }
     private void ResetTabsImg() {
         image_home.setImageResource(R.drawable.home1);
-        image_find.setImageResource(R.drawable.find1);
-        image_mes.setImageResource(R.drawable.mess1);
+        image_find.setImageResource(R.drawable.mess1);
+        image_mes.setImageResource(R.drawable.find1);
         image_attractions.setImageResource(R.drawable.jing1);
         image_my.setImageResource(R.drawable.my1);
     }
@@ -201,10 +228,10 @@ public class MainActivity extends Activity {
                 image_home.setImageResource(R.drawable.home2);
                 break;
             case 1:
-                image_find.setImageResource(R.drawable.find2);
+                image_find.setImageResource(R.drawable.mess2);
                 break;
             case 2:
-                image_mes.setImageResource(R.drawable.mess2);
+                image_mes.setImageResource(R.drawable.find2);
                 break;
             case 3:
                 image_attractions.setImageResource(R.drawable.jing2);
@@ -223,6 +250,7 @@ public class MainActivity extends Activity {
             for (EMMessage message : messages) {
                 EaseUI.getInstance().getNotifier().onNewMsg(message);
             }
+            refreshUIWithMessage();
 
         }
 
@@ -246,6 +274,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (!isConflict && !isCurrentAccountRemoved) {
+            updateUnreadLabel();
+//            updateUnreadAddressLable();
+        }
         EMClient.getInstance().chatManager().addMessageListener(messageListener);
     }
     //监听结束
@@ -253,7 +285,5 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EMClient.getInstance().logout(true);
-        EMClient.getInstance().chatManager().removeMessageListener(messageListener);
     }
 }

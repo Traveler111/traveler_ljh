@@ -25,6 +25,7 @@ import com.example.nianchen.normaluniversitytourgroup.R;
 import com.example.nianchen.normaluniversitytourgroup.adapter.FindAdapter;
 import com.example.nianchen.normaluniversitytourgroup.adapter.FindFragmentAdapter;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.ui.EaseConversationListFragment;
 import com.hyphenate.exceptions.HyphenateException;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -38,7 +39,7 @@ import java.util.List;
 /**
  * Created by nianchen on 2016/11/22.
  */
-public class FindFragment extends Fragment {
+public class FindFragment extends EaseConversationListFragment {
     private Button btn;
     private List<Myfriendzzx> friends=new ArrayList<Myfriendzzx>();
     private List<FriendOne>friends1 = new ArrayList<FriendOne>();
@@ -54,9 +55,19 @@ public class FindFragment extends Fragment {
             super.handleMessage(msg);
             List <Myfriendzzx>friends1=new ArrayList<>();
             List <String> lists= (List<String>) msg.obj;
-            for(int i=0;i<lists.size();i++){
-                friends1.add(new Myfriendzzx(lists.get(i),R.drawable.loginhead));
-                Log.e(""+lists.get(i),"get");
+            for (int i = 0; i < lists.size()-1; i++) {
+                if(lists.get(i).equals(lists.get(i+1))){
+
+                }
+                else if(i+1!=lists.size()-1&&lists.get(i)!=(lists.get(i+1))){
+                    friends1.add(new Myfriendzzx(lists.get(i), R.drawable.loginhead));
+                    Log.e("" + lists.get(i), "get");
+                }
+                else {
+                    friends1.add(new Myfriendzzx(lists.get(i), R.drawable.loginhead));
+                    friends1.add(new Myfriendzzx(lists.get(i+1), R.drawable.loginhead));
+                }
+
             }
             friends.clear();
             friends.addAll(friends1);

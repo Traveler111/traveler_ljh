@@ -52,10 +52,14 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        Log.e("log","onCreate");
-        findView();
-        setListener();
+        if(EMClient.getInstance().isLoggedInBefore()) {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(i);
+            LoginActivity.this.finish();
+           }setContentView(R.layout.activity_login);
+            Log.e("log","onCreate");
+            findView();
+            setListener();
     }
 
     private void findView() {

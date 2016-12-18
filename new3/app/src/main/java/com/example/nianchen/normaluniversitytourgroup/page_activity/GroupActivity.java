@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -44,7 +45,7 @@ public class GroupActivity extends Activity {
     private TextView tv1;
     private TextView tv2;
     String s1;
-
+    public int scrollStates;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +74,24 @@ public class GroupActivity extends Activity {
         getid();
         setlistener();
         myadpter = new GroupAdapter(this,friends,list);
+
+
         list.setAdapter(myadpter);
+
+
+//
+
+        list.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                scrollStates = scrollState;
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int lastInScreen = firstVisibleItem + visibleItemCount;
+            }
+        });
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -142,7 +160,22 @@ public class GroupActivity extends Activity {
 //        friends.add(new FriendTwo(R.drawable.a1,"抱犊寨","详情......",R.drawable.b1));
 //        friends.add(new FriendTwo(R.drawable.a1,"抱犊寨","详情......",R.drawable.b1));
 //    }
-    public void onPause(){
+
+    class OnScrollListenerImpl implements AbsListView.OnScrollListener {
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+            scrollStates = scrollState;
+        }
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem,
+                             int visibleItemCount, int totalItemCount) {
+            int lastInScreen = firstVisibleItem + visibleItemCount;
+        }
+    }
+
+
+        public void onPause(){
         super.onPause();
         friends.clear();
     }

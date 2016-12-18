@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">"Normal university tour group "</string>
+    <string name="delete_message">Delete message</string>
+    <string name="delete_conversation_messages">Delete conversation and messages</string>
+    <string name="delete_conversation">Delete conversation</string>
+    <string name="delete_contact">Delete contact</string>
 </resources>

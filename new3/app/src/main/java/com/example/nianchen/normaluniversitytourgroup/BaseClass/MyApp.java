@@ -3,7 +3,10 @@ package com.example.nianchen.normaluniversitytourgroup.BaseClass;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
+import com.hyphenate.EMContactListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.controller.EaseUI;
@@ -30,6 +33,7 @@ public class MyApp extends Application {
         MyApp.context = getApplicationContext();
         // 初始化环信SDK
         initEasemob();
+        setfriendlistener();
     }
     public static Context getAppContext() {
         return MyApp.context;
@@ -62,7 +66,7 @@ public class MyApp extends Application {
         // 设置Appkey，如果配置文件已经配置，这里可以不用设置
         // options.setAppKey("guaju");
         // 设置自动登录
-        options.setAutoLogin(true);
+       options.setAutoLogin(true);
         // 设置是否需要发送已读回执
         options.setRequireAck(true);
         // 设置是否需要发送回执，TODO 这个暂时有bug，上层收不到发送回执
@@ -133,6 +137,41 @@ public class MyApp extends Application {
         }
         // 没有匹配的项，返回为null
         return null;
+    }
+    public void setfriendlistener() {
+        EMClient.getInstance().contactManager().setContactListener(new EMContactListener() {
+            @Override
+            public void onContactAdded(String s) {
+
+            }
+
+            @Override
+            public void onContactDeleted(String s) {
+
+            }
+
+            @Override
+            public void onContactInvited(String s, String s1) {
+                Log.e("receive from " + s, "reason is" + s1);
+                Intent intent = new Intent();
+                //与清单文件的receiver的anction对应
+                intent.setAction("com.broadcast.test");
+                intent.putExtra("name", s);
+                intent.putExtra("reason", s1);
+                //发送广播
+                sendBroadcast(intent);
+            }
+
+            @Override
+            public void onContactAgreed(String s) {
+
+            }
+
+            @Override
+            public void onContactRefused(String s) {
+
+            }
+        });
     }
 
 }

@@ -65,18 +65,19 @@ public class MainActivityFabu extends Activity {
             super.handleMessage(msg);
             Log.e("what is  ",""+msg.what);
             Log.e("reslut is",""+result);
-            if(result.equals("ok")&&msg.what==10){
+            if(result.equals("ok")&&createresult==10){
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        mDialog.dismiss();
                         Toast.makeText(MainActivityFabu.this,"发布成功！",Toast.LENGTH_LONG).show();
                     }
                 });
             }
         }
     };
-
-    private ProgressDialog dia;
+    private int createresult;
+    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +111,9 @@ public class MainActivityFabu extends Activity {
         tv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                mDialog = new ProgressDialog(MainActivityFabu.this);
+//                mDialog.setMessage("正在发布主题，请稍后...");
+//                mDialog.show();
                 Log.e("tv3","onclick");
                 Log.e("dsss",paths);
                 String url="http://123.207.228.232/blog/Fabucontent";
@@ -126,12 +130,12 @@ public class MainActivityFabu extends Activity {
                         //startActivity(i1);
 
                         result="ok";
-                        Toast.makeText(MainActivityFabu.this, "发布成功", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivityFabu.this, "发布成功", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-
+                           mDialog.dismiss();
                     }
                 });
                 creategroup(title.getText().toString().trim(),content.getText().toString().trim(),"大家一起出去玩");
@@ -297,7 +301,7 @@ public class MainActivityFabu extends Activity {
         try {
             EMClient.getInstance().groupManager().createGroup(groupName, desc,new String[]{} ,reason, option);
             Message msg=new Message();
-            msg.what=10;
+            createresult=10;
             myhandler.sendMessage(msg);
 
         } catch (HyphenateException e) {

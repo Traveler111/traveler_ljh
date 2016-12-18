@@ -145,11 +145,13 @@ public class GroupAdapter extends BaseAdapter {
 //                                msg.obj = bitmap;
 //                                msg.arg1 = postion;
                                 if(scrollStates== AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-                                    img1=(ImageView) view1.getChildAt(postion-view1.getFirstVisiblePosition()).findViewById(R.id.left);
+//                                    img1=(ImageView) view1.getChildAt(postion-view1.getFirstVisiblePosition()).findViewById(R.id.left);
+                                    img=(ImageView) convertView.findViewById(R.id.left);
+                                    img.setImageBitmap(bitmap);
                                 }
 
 
-                               img1.setImageBitmap(bitmap);
+//                               img1.setImageBitmap(bitmap);
 
                                 ProgressBar pb = (ProgressBar)convertView.findViewById(R.id.grid_progressBar);
                                 pb.setVisibility(View.INVISIBLE);
